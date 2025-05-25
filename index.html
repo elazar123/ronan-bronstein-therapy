@@ -1425,6 +1425,102 @@
             color: var(--text-medium);
         }
         
+        .about-certifications {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-top: 2rem;
+        }
+        
+        .about-certifications h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .about-certifications ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .about-certifications li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            color: var(--text-medium);
+        }
+        
+        .about-certifications i {
+            color: var(--main-accent);
+            margin-left: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-text {
+                text-align: center;
+            }
+            
+            .about-certifications ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-certifications li {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- קישור לדילוג על התפריט - נגישות -->
+    <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+    
+    <!-- כפתור נגישות -->
+    <div class="accessibility-button" aria-label="אפשרויות נגישות">
+        <i class="fas fa-universal-access"></i>
+    </div>
+    <div class="accessibility-menu">
+        <div class="accessibility-option" id="fontSize" aria-label="הגדל טקסט">
+            <i class="fas fa-text-height"></i>
+            <span>הגדל טקסט</span>
+        </div>
+        <div class="accessibility-option" id="highContrast" aria-label="ניגודיות גבוהה">
+            <i class="fas fa-adjust"></i>
+            <span>ניגודיות גבוהה</span>
+        </div>
+        <div class="accessibility-option" id="linksHighlight" aria-label="הדגש קישורים">
+            <i class="fas fa-link"></i>
+            <span>הדגש קישורים</span>
+        </div>
+        <div class="accessibility-option" id="resetAccessibility" aria-label="איפוס הגדרות">
+            <i class="fas fa-redo-alt"></i>
+            <span>איפוס הגדרות</span>
+        </div>
+    </div>
+
+    <!-- Header חדש בסגנון איתן עזריה -->
+    <header class="header" role="banner">
+        <div class="header-container">
+            <a href="#" class="logo" aria-label="רונן ברונשטיין - חזרה לדף הבית">רונן ברונשטיין</a>
+            
+            <div class="main-menu" id="mainMenu">
+                <ul class="nav-menu" role="navigation" aria-label="תפריט ראשי">
+                    <li><a href="#home" aria-current="page">ראשי</a></li>
+                    <li><a href="#about">אודות</a></li>
+                    <li><a href="#services">הטיפולים</a></li>
+                    <li><a href="#testimonials">המלצות</a></li>
+                    <li><a href="#gallery">גלריה</a></li>
+                </ul>
                 
                 <a href="#contact" class="contact-btn" aria-label="לחץ ליצירת קשר">דברו איתי!</a>
             </div>
@@ -1483,6 +1579,7 @@
     <!-- About Section - אודות רונן -->
     <section class="about section" id="about">
         <div class="container center-wrapper">
+            <h2 class="section-title">אודות רונן</h2>
             
             <div class="about-content">
                 <div class="about-image">
@@ -1509,6 +1606,14 @@
                 </div>
             </div>
             
+            <div class="about-certifications">
+                <h3>הסמכות מקצועיות</h3>
+                <ul>
+                    <li><i class="fas fa-certificate"></i> תעודת הסמכה ביוגה טיפולית - המכון הישראלי ליוגה</li>
+                    <li><i class="fas fa-certificate"></i> מטפל מוסמך בעיסוי תאילנדי מסורתי - בית הספר צ'יאנג מאי, תאילנד</li>
+                    <li><i class="fas fa-certificate"></i> הסמכה בביו-מגנטיקה - המרכז לרפואה אלטרנטיבית</li>
+                    <li><i class="fas fa-certificate"></i> דיפלומה ברפלקסולוגיה - המכללה לרפואה משלימה</li>
+                </ul>
             </div>
         </div>
     </section>
