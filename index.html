@@ -1366,6 +1366,119 @@
             width: 24px;
             text-align: center;
         }
+
+        /* עיצוב מקטע האודות */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            border: 5px solid var(--white);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            text-align: right;
+        }
+        
+        .about-subtitle {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-medium);
+        }
+        
+        .about-certifications {
+            background-color: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(5px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-top: 2rem;
+        }
+        
+        .about-certifications h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .about-certifications ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .about-certifications li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            color: var(--text-medium);
+        }
+        
+        .about-certifications i {
+            color: var(--main-accent);
+            margin-left: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-text {
+                text-align: center;
+            }
+            
+            .about-certifications ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-certifications li {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1456,6 +1569,51 @@
                     <i class="fas fa-calendar-check"></i>
                     מתחילים מכאן
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- About Section - אודות רונן -->
+    <section class="about section" id="about">
+        <div class="container center-wrapper">
+            <h2 class="section-title">אודות רונן</h2>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="photo/WhatsApp Image 2025-05-22 at 17.40.42.jpeg" alt="רונן ברונשטיין - מטפל הוליסטי" loading="lazy">
+                </div>
+                
+                <div class="about-text">
+                    <h3 class="about-subtitle">מסע אישי של ריפוי והתחדשות</h3>
+                    <p>
+                        שלום, אני רונן ברונשטיין, מטפל הוליסטי מוסמך עם יותר מ-15 שנות ניסיון בתחום הטיפול האלטרנטיבי. המסע שלי בעולם הריפוי ההוליסטי התחיל דווקא מפציעה אישית חמורה - תאונת דרכים שהובילה לכאבי גב כרוניים שלא מצאו פתרון בשיטות הקונבנציונליות.
+                    </p>
+                    <p>
+                        אחרי שנים של חיפוש, הגעתי לשיטות טיפול הוליסטיות שלא רק הקלו על הכאב שלי, אלא שינו את השקפת העולם שלי לגבי בריאות וריפוי. החלטתי להקדיש את חיי ללימוד וחקר של מגוון שיטות ריפוי מסורתיות ומודרניות כדי לעזור לאחרים למצוא את דרכם לאיזון, בריאות ושלווה פנימית.
+                    </p>
+                    <p>
+                        הוסמכתי כמטפל ביוגה טיפולית, עיסוי תאילנדי, ביו-מגנטיקה ורפלקסולוגיה. הגישה שלי משלבת בין התורות העתיקות של המזרח לבין הידע המדעי העדכני, תוך התאמה אישית לכל מטופל.
+                    </p>
+                    <p>
+                        אני מאמין שהגוף שלנו הוא מערכת מופלאה בעלת יכולות ריפוי עצמיות, וכמטפל, תפקידי הוא להדריך ולסייע לגוף להפעיל את מנגנוני הריפוי הטבעיים שלו. הטיפולים שלי מיועדים לא רק להקל על סימפטומים, אלא להתמודד עם שורש הבעיה ולהעניק כלים לשמירה על בריאות לטווח ארוך.
+                    </p>
+                    <p>
+                        אני מזמין אותך למסע משותף של ריפוי והתחדשות. יחד, נבנה תוכנית טיפול מותאמת אישית שתעזור לך להשיג איזון, להפחית כאבים ולשפר את איכות חייך.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="about-certifications">
+                <h3>הסמכות מקצועיות</h3>
+                <ul>
+                    <li><i class="fas fa-certificate"></i> תעודת הסמכה ביוגה טיפולית - המכון הישראלי ליוגה</li>
+                    <li><i class="fas fa-certificate"></i> מטפל מוסמך בעיסוי תאילנדי מסורתי - בית הספר צ'יאנג מאי, תאילנד</li>
+                    <li><i class="fas fa-certificate"></i> הסמכה בביו-מגנטיקה - המרכז לרפואה אלטרנטיבית</li>
+                    <li><i class="fas fa-certificate"></i> דיפלומה ברפלקסולוגיה - המכללה לרפואה משלימה</li>
+                </ul>
             </div>
         </div>
     </section>
