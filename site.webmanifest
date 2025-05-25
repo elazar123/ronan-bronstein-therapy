@@ -1,0 +1,26 @@
+{
+  "name": "רונן ברונשטיין - טיפולים הוליסטיים",
+  "short_name": "רונן הוליסטי",
+  "description": "טיפולים הוליסטיים בשיטות מתקדמות: יוגה טיפולית, עיסוי תאילנדי, ביו-מגנטיקה ורפלקסולוגיה",
+  "icons": [
+    {
+      "src": "icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#E6E4D0",
+  "background_color": "#E6E4D0",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "he-IL"
+} 

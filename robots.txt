@@ -1,0 +1,23 @@
+# robots.txt for https://www.ronan-holistic.co.il
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /cgi-bin/
+
+# Allow Google Images to index images
+User-agent: Googlebot-Image
+Allow: /img/
+Allow: /photo/
+Allow: /images/
+
+# Allow Google to index all content
+User-agent: Googlebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.ronan-holistic.co.il/sitemap.xml
+
+# Crawl delay to prevent server overload
+Crawl-delay: 10 
