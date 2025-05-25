@@ -42,6 +42,10 @@
     <meta name="twitter:description" content="מטפל מוסמך המתמחה בטיפולים הוליסטיים: יוגה טיפולית, עיסוי תאילנדי, ביו-מגנטיקה ורפלקסולוגיה.">
     <meta name="twitter:image" content="https://www.ronan-holistic.co.il/photo/WhatsApp%20Image%202025-05-22%20at%2017.40.42.jpeg">
     
+    <!-- Accessibility -->
+    <meta name="accessibility" content="עמידה בתקני נגישות ישראליים">
+    <link rel="alternate" hreflang="he" href="https://www.ronan-holistic.co.il/">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -106,6 +110,12 @@
             --nav-hover: #4A4A3D;
             --button-bg: #C1BE6F;
             --button-hover: #DCE08E;
+            
+            /* נגישות - ניגודיות טובה */
+            --focus-outline: 3px solid #2f80ed;
+            --focus-visible-outline: 3px dashed #2f80ed;
+            --skip-link-bg: #000;
+            --skip-link-color: #fff;
         }
 
         body {
@@ -114,6 +124,41 @@
             color: var(--text-dark);
             background: transparent;
             overflow-x: hidden;
+        }
+        
+        /* Skip to content link - נגישות */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--skip-link-bg);
+            color: var(--skip-link-color);
+            padding: 8px;
+            z-index: 9999;
+            text-decoration: none;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* פוקוס סטייל - נגישות */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
+            outline: var(--focus-outline);
+            outline-offset: 3px;
+        }
+        
+        /* התאמת תמונות לקוראי מסך */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* הגדלת אזורי לחיצה - נגישות */
+        button, .button, a.service-cta, a.contact-btn, a.hero-cta {
+            min-height: 44px;
+            min-width: 44px;
         }
 
         /* Header בסגנון איתן עזריה */
@@ -141,23 +186,27 @@
             font-weight: 700;
             color: var(--text-dark);
             text-decoration: none;
+            text-align: center;
         }
 
         /* עיצוב תפריט ניווט חדש */
         .main-menu {
             display: flex;
             align-items: center;
+            justify-content: center;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
             margin-left: 2rem;
+            justify-content: center;
         }
 
         .nav-menu li {
             position: relative;
             margin: 0 1rem;
+            text-align: center;
         }
 
         .nav-menu a {
@@ -167,6 +216,8 @@
             font-size: 1.1rem;
             padding: 0.5rem;
             transition: color 0.3s ease;
+            display: inline-block;
+            text-align: center;
         }
 
         .nav-menu a:hover {
@@ -183,6 +234,9 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-align: center;
+            margin: 0 auto;
         }
 
         .contact-btn:hover {
@@ -285,13 +339,26 @@
             z-index: -1;
         }
         
+        /* הוספת עטיפה למרכוז תוכן */
+        .center-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
         /* עיצוב ה-Hero Section המעודכן */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
             padding-top: 120px;
             position: relative;
+            text-align: center;
         }
 
         .hero-content {
@@ -299,8 +366,13 @@
             margin: 0 auto;
             padding: 0 2rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
-
+        
         .hero-main-title {
             font-size: clamp(4.5rem, 10vw, 8rem);
             font-weight: 800;
@@ -356,10 +428,11 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
             transition: var(--transition);
             box-shadow: 0 8px 25px rgba(193, 190, 111, 0.3), 0 0 15px rgba(255, 255, 255, 0.8);
-            margin-top: 1rem;
+            margin: 1rem auto;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
@@ -432,18 +505,25 @@
             font-weight: 700;
             color: var(--main-accent);
             text-align: center;
-            margin-bottom: 3rem;
+            margin: 0 auto 3rem;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
             background-color: rgba(255, 255, 255, 0.7);
             padding: 0.5rem 1.5rem;
             border-radius: 10px;
             display: inline-block;
-            margin-left: auto;
-            margin-right: auto;
+        }
+        
+        .services.section {
+            text-align: center;
         }
         
         .service-block {
-            margin-bottom: 6rem;
+            margin: 0 auto 6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: var(--max-width);
         }
         
         .service-header {
@@ -478,6 +558,9 @@
         }
         
         .service-content {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -494,6 +577,7 @@
         
         .service-description {
             direction: rtl;
+            text-align: right;
         }
         
         .service-description p {
@@ -546,10 +630,11 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 1rem;
+            margin: 1rem auto;
             transition: var(--transition);
             box-shadow: 0 6px 15px rgba(193, 190, 111, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
         
         .service-cta:hover {
@@ -585,13 +670,15 @@
         .contact-section {
             background: var(--cream-light);
             padding: 6rem 0;
+            text-align: center;
         }
         
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            margin-bottom: 4rem;
+            margin: 0 auto 4rem;
+            max-width: var(--max-width);
         }
         
         .contact-info-block {
@@ -754,6 +841,7 @@
             width: 100%;
             cursor: pointer;
             transition: var(--transition);
+            margin: 0 auto;
         }
         
         .submit-btn:hover {
@@ -795,6 +883,7 @@
             background: var(--text-dark);
             color: white;
             padding: 4rem 0 2rem;
+            text-align: center;
         }
         
         .footer-content {
@@ -950,6 +1039,7 @@
         .testimonials {
             background-color: var(--white);
             position: relative;
+            text-align: center;
         }
         
         .testimonials-wrapper {
@@ -957,6 +1047,9 @@
             max-width: 900px;
             margin: 0 auto;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .testimonial-card {
@@ -964,8 +1057,10 @@
             border-radius: var(--border-radius);
             padding: 3rem;
             box-shadow: var(--shadow-light);
-            margin: 1rem;
+            margin: 1rem auto;
             transition: var(--transition);
+            width: 100%;
+            max-width: 800px;
         }
         
         .testimonial-content {
@@ -1056,7 +1151,8 @@
         
         .testimonial-cta {
             text-align: center;
-            margin-top: 3rem;
+            margin: 3rem auto 0;
+            width: 100%;
         }
         
         @media (max-width: 768px) {
@@ -1068,11 +1164,15 @@
         /* Gallery Carousel Styles */
         .gallery {
             background-color: var(--white);
+            text-align: center;
         }
         
         .gallery-container {
             max-width: 1000px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .gallery-carousel {
@@ -1202,27 +1302,117 @@
                 font-size: 1rem;
             }
         }
+
+        /* נגישות כפתור */
+        .accessibility-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--main-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .accessibility-button:hover {
+            background-color: var(--button-hover);
+            transform: scale(1.1);
+        }
+        
+        .accessibility-menu {
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            width: 250px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 15px;
+            z-index: 9998;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .accessibility-menu.active {
+            display: flex;
+        }
+        
+        .accessibility-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .accessibility-option:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .accessibility-option i {
+            color: var(--main-accent);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <!-- קישור לדילוג על התפריט - נגישות -->
+    <a href="#main-content" class="skip-link">דלג לתוכן העיקרי</a>
+    
+    <!-- כפתור נגישות -->
+    <div class="accessibility-button" aria-label="אפשרויות נגישות">
+        <i class="fas fa-universal-access"></i>
+    </div>
+    <div class="accessibility-menu">
+        <div class="accessibility-option" id="fontSize" aria-label="הגדל טקסט">
+            <i class="fas fa-text-height"></i>
+            <span>הגדל טקסט</span>
+        </div>
+        <div class="accessibility-option" id="highContrast" aria-label="ניגודיות גבוהה">
+            <i class="fas fa-adjust"></i>
+            <span>ניגודיות גבוהה</span>
+        </div>
+        <div class="accessibility-option" id="linksHighlight" aria-label="הדגש קישורים">
+            <i class="fas fa-link"></i>
+            <span>הדגש קישורים</span>
+        </div>
+        <div class="accessibility-option" id="resetAccessibility" aria-label="איפוס הגדרות">
+            <i class="fas fa-redo-alt"></i>
+            <span>איפוס הגדרות</span>
+        </div>
+    </div>
+
     <!-- Header חדש בסגנון איתן עזריה -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header-container">
-            <a href="#" class="logo">רונן ברונשטיין</a>
+            <a href="#" class="logo" aria-label="רונן ברונשטיין - חזרה לדף הבית">רונן ברונשטיין</a>
             
             <div class="main-menu" id="mainMenu">
-                <ul class="nav-menu">
-                    <li><a href="#home">ראשי</a></li>
+                <ul class="nav-menu" role="navigation" aria-label="תפריט ראשי">
+                    <li><a href="#home" aria-current="page">ראשי</a></li>
                     <li><a href="#about">אודות</a></li>
                     <li><a href="#services">הטיפולים</a></li>
                     <li><a href="#testimonials">המלצות</a></li>
                     <li><a href="#gallery">גלריה</a></li>
                 </ul>
                 
-                <a href="#contact" class="contact-btn">דברו איתי!</a>
+                <a href="#contact" class="contact-btn" aria-label="לחץ ליצירת קשר">דברו איתי!</a>
             </div>
             
-            <div class="nav-toggle" id="navToggle">
+            <div class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainMenu" aria-label="פתח/סגור תפריט">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1231,10 +1421,10 @@
     </header>
 
     <!-- Background Video -->
-    <div class="video-background">
+    <div class="video-background" aria-hidden="true">
         <video autoplay muted loop playsinline preload="auto" id="bgVideo">
             <source src="video/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            הדפדפן שלך אינו תומך בתגית וידאו.
         </video>
     </div>
 
@@ -1247,8 +1437,8 @@
 
     <!-- Hero Section - סגנון עדכני ברוח איתן עזריה -->
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content fade-in">
+        <div class="container center-wrapper">
+            <div class="hero-content fade-in" id="main-content">
                 <h1 class="hero-main-title">אלופים</h1>
                 <h2 class="hero-subtitle-1">מעצם היותכם</h2>
                 
@@ -1275,7 +1465,7 @@
 
     <!-- Services Section - סגנון עדכני בהשראת איתן עזריה -->
     <section class="services section" id="services">
-        <div class="container">
+        <div class="container center-wrapper">
             <h2 class="section-title">הטיפולים שלי</h2>
             
             <!-- Service 1 -->
@@ -1393,71 +1583,71 @@
 
     <!-- Testimonials Section -->
     <section class="testimonials section" id="testimonials">
-        <div class="container">
+        <div class="container center-wrapper">
             <h2 class="section-title">המלצות</h2>
             
             <div class="testimonials-wrapper">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card" role="article" aria-labelledby="testimonial-author-1">
                     <div class="testimonial-content">
-                        <div class="quote-icon">
+                        <div class="quote-icon" aria-hidden="true">
                             <i class="fas fa-quote-right"></i>
                         </div>
                         <p class="testimonial-text">
                             באמת שאין על הטיפולים של רונן.. הגעתי לרונן עם כאבי גב מטורפים לא הצלחתי שבוע לעמוד בכלל בקושי הגעתי אליו לקליניקה.. לאחר סשן טיפול שעתיים שבהם רונן עשה לי במסירות רבה הלוך ושוב טיפול על הגב יצאתי מהקליניקה עומד הולך ועם כלים לעבודה.. לאחר שבוע של אימונים ביתייים של תרגיל שקיבלתי מרונן הכאב עבר כמו לא היה
                         </p>
                         <div class="testimonial-author">
-                            <h4>אלעזר ריגר</h4>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <h4 id="testimonial-author-1">אלעזר ריגר</h4>
+                            <div class="rating" aria-label="דירוג: 5 מתוך 5 כוכבים">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card" role="article" aria-labelledby="testimonial-author-2">
                     <div class="testimonial-content">
-                        <div class="quote-icon">
+                        <div class="quote-icon" aria-hidden="true">
                             <i class="fas fa-quote-right"></i>
                         </div>
                         <p class="testimonial-text">
                             כאבי הברכיים ליוו אותי שנים, וניסיתי הכל - תרופות, פיזיותרפיה ואפילו הזרקות. הגעתי לרונן בייאוש, וכבר אחרי 3 טיפולים של ביו-מגנטיקה בשילוב יוגה טיפולית חל שיפור משמעותי. רונן לא רק מטפל בסימפטומים אלא מלמד אותך איך לטפל בעצמך. זו גישה שלא פגשתי אצל שום מטפל אחר.
                         </p>
                         <div class="testimonial-author">
-                            <h4>מיכל לוינשטיין</h4>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <h4 id="testimonial-author-2">מיכל לוינשטיין</h4>
+                            <div class="rating" aria-label="דירוג: 5 מתוך 5 כוכבים">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card" role="article" aria-labelledby="testimonial-author-3">
                     <div class="testimonial-content">
-                        <div class="quote-icon">
+                        <div class="quote-icon" aria-hidden="true">
                             <i class="fas fa-quote-right"></i>
                         </div>
                         <p class="testimonial-text">
                             טיפולי הרפלקסולוגיה של רונן שינו את איכות החיים שלי. סבלתי מבעיות שינה כרוניות וחרדות, ולאחר מספר טיפולים חל שיפור דרמטי. מה שמיוחד אצל רונן הוא היכולת שלו לשלב בין טכניקות שונות ולהתאים אותן בדיוק לצרכים האישיים שלך. מטפל מקצועי, קשוב ובעל ידע עצום.
                         </p>
                         <div class="testimonial-author">
-                            <h4>דניאל כהן</h4>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                            <h4 id="testimonial-author-3">דניאל כהן</h4>
+                            <div class="rating" aria-label="דירוג: 5 מתוך 5 כוכבים">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <i class="fas fa-star" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -1465,17 +1655,17 @@
             </div>
             
             <!-- Testimonial Navigation -->
-            <div class="testimonial-nav">
+            <div class="testimonial-nav" role="navigation" aria-label="ניווט בהמלצות">
                 <button class="testimonial-prev" aria-label="המלצה קודמת">
-                    <i class="fas fa-chevron-right"></i>
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
                 </button>
-                <div class="testimonial-dots">
-                    <span class="testimonial-dot active"></span>
-                    <span class="testimonial-dot"></span>
-                    <span class="testimonial-dot"></span>
+                <div class="testimonial-dots" role="tablist">
+                    <span class="testimonial-dot active" role="tab" aria-label="המלצה 1" aria-selected="true"></span>
+                    <span class="testimonial-dot" role="tab" aria-label="המלצה 2" aria-selected="false"></span>
+                    <span class="testimonial-dot" role="tab" aria-label="המלצה 3" aria-selected="false"></span>
                 </div>
                 <button class="testimonial-next" aria-label="המלצה הבאה">
-                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
                 </button>
             </div>
             
@@ -1490,14 +1680,14 @@
     
     <!-- Gallery Section -->
     <section class="gallery section" id="gallery">
-        <div class="container">
+        <div class="container center-wrapper">
             <h2 class="section-title">גלריה</h2>
             
             <div class="gallery-container">
                 <div class="gallery-carousel">
                     <div class="carousel-inner">
                         <!-- Gallery Item 1 -->
-                        <div class="carousel-item active">
+                        <div class="carousel-item active" role="listitem" aria-label="תמונה 1 מתוך 5 - יוגה טיפולית">
                             <img src="photo/WhatsApp Image 2025-05-22 at 17.40.42 (1).jpeg" alt="יוגה טיפולית - רונן ברונשטיין" loading="lazy">
                             <div class="carousel-caption">
                                 <h3>יוגה טיפולית</h3>
@@ -1506,7 +1696,7 @@
                         </div>
                         
                         <!-- Gallery Item 2 -->
-                        <div class="carousel-item">
+                        <div class="carousel-item" role="listitem" aria-label="תמונה 2 מתוך 5 - עיסוי תאילנדי">
                             <img src="photo/WhatsApp Image 2025-05-22 at 17.40.42 (2).jpeg" alt="עיסוי תאילנדי - רונן ברונשטיין" loading="lazy">
                             <div class="carousel-caption">
                                 <h3>עיסוי תאילנדי</h3>
@@ -1515,7 +1705,7 @@
                         </div>
                         
                         <!-- Gallery Item 3 -->
-                        <div class="carousel-item">
+                        <div class="carousel-item" role="listitem" aria-label="תמונה 3 מתוך 5 - ביו-מגנטיקה">
                             <img src="photo/WhatsApp Image 2025-05-22 at 17.40.42 (3).jpeg" alt="ביו-מגנטיקה - רונן ברונשטיין" loading="lazy">
                             <div class="carousel-caption">
                                 <h3>ביו-מגנטיקה</h3>
@@ -1524,7 +1714,7 @@
                         </div>
                         
                         <!-- Gallery Item 4 -->
-                        <div class="carousel-item">
+                        <div class="carousel-item" role="listitem" aria-label="תמונה 4 מתוך 5 - רפלקסולוגיה">
                             <img src="photo/WhatsApp Image 2025-05-22 at 17.40.42 (4).jpeg" alt="רפלקסולוגיה - רונן ברונשטיין" loading="lazy">
                             <div class="carousel-caption">
                                 <h3>רפלקסולוגיה</h3>
@@ -1533,7 +1723,7 @@
                         </div>
                         
                         <!-- Gallery Item 5 -->
-                        <div class="carousel-item">
+                        <div class="carousel-item" role="listitem" aria-label="תמונה 5 מתוך 5 - טיפול הוליסטי">
                             <img src="photo/WhatsApp Image 2025-05-22 at 17.40.42.jpeg" alt="טיפול הוליסטי - רונן ברונשטיין" loading="lazy">
                             <div class="carousel-caption">
                                 <h3>הקליניקה</h3>
@@ -1544,19 +1734,19 @@
                     
                     <!-- Carousel Controls -->
                     <button class="carousel-control carousel-prev" aria-label="תמונה קודמת">
-                        <i class="fas fa-chevron-right"></i>
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
                     </button>
                     <button class="carousel-control carousel-next" aria-label="תמונה הבאה">
-                        <i class="fas fa-chevron-left"></i>
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
                     </button>
                     
                     <!-- Carousel Indicators -->
-                    <div class="carousel-indicators">
-                        <span class="indicator active" data-index="0"></span>
-                        <span class="indicator" data-index="1"></span>
-                        <span class="indicator" data-index="2"></span>
-                        <span class="indicator" data-index="3"></span>
-                        <span class="indicator" data-index="4"></span>
+                    <div class="carousel-indicators" role="tablist" aria-label="ניווט בגלריה">
+                        <span class="indicator active" data-index="0" role="tab" aria-label="תמונה 1" aria-selected="true"></span>
+                        <span class="indicator" data-index="1" role="tab" aria-label="תמונה 2" aria-selected="false"></span>
+                        <span class="indicator" data-index="2" role="tab" aria-label="תמונה 3" aria-selected="false"></span>
+                        <span class="indicator" data-index="3" role="tab" aria-label="תמונה 4" aria-selected="false"></span>
+                        <span class="indicator" data-index="4" role="tab" aria-label="תמונה 5" aria-selected="false"></span>
                     </div>
                 </div>
             </div>
@@ -1568,7 +1758,7 @@
 
     <!-- Contact Section - סגנון איתן עזריה -->
     <section class="contact-section" id="contact">
-        <div class="container">
+        <div class="container center-wrapper">
             <h2 class="section-title">דברו איתי!</h2>
             
             <div class="contact-wrapper">
@@ -1625,33 +1815,33 @@
                 </div>
                 
                 <div class="contact-form-block">
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" role="form" aria-label="טופס יצירת קשר">
                         <h3 class="form-title">השאירו פרטים ואחזור אליכם בהקדם</h3>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">שם מלא</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required aria-required="true">
                             </div>
                             
                             <div class="form-group">
                                 <label for="phone">טלפון</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="phone" required aria-required="true">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="message">הודעה</label>
-                            <textarea id="message" name="message" rows="5"></textarea>
+                            <textarea id="message" name="message" rows="5" aria-required="false"></textarea>
                         </div>
                         
                         <div class="form-consent">
-                            <input type="checkbox" id="consent" name="consent" required>
+                            <input type="checkbox" id="consent" name="consent" required aria-required="true">
                             <label for="consent">יש אישור באהבה לקבל דיוורים והודעות מרונן ברונשטיין</label>
                         </div>
                         
                         <button type="submit" class="submit-btn">
-                            <i class="fab fa-whatsapp"></i> שלח הודעה
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> שלח הודעה
                         </button>
                     </form>
                 </div>
@@ -1673,7 +1863,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
@@ -1713,6 +1903,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 כל הזכויות שמורות לרונן ברונשטיין</p>
                 <p>אתר מונגש בהתאם לתקן הנגישות הישראלי | <a href="#">הצהרת נגישות</a></p>
+                <p>נבנה על ידי סטודיו נהורא AI • אלעזר ריגר • <a href="tel:0525624350">052-562-4350</a></p>
             </div>
         </div>
     </footer>
@@ -1728,6 +1919,10 @@
                 navToggle.addEventListener('click', function() {
                     navToggle.classList.toggle('active');
                     mainMenu.classList.toggle('active');
+                    
+                    // עדכון aria-expanded לנגישות
+                    const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+                    navToggle.setAttribute('aria-expanded', !expanded);
                 });
                 
                 // סגירת תפריט בלחיצה על קישור
@@ -1861,17 +2056,21 @@ ${message ? `\nההודעה שלי: ${message}` : ''}
                 slides.forEach(slide => {
                     slide.classList.remove('active');
                     slide.style.display = 'none';
+                    slide.setAttribute('aria-hidden', 'true');
                 });
                 
                 // Deactivate all indicators
                 indicators.forEach(dot => {
                     dot.classList.remove('active');
+                    dot.setAttribute('aria-selected', 'false');
                 });
                 
                 // Show current slide and activate indicator
                 slides[index].classList.add('active');
                 slides[index].style.display = 'block';
+                slides[index].setAttribute('aria-hidden', 'false');
                 indicators[index].classList.add('active');
+                indicators[index].setAttribute('aria-selected', 'true');
                 
                 currentSlide = index;
             }
@@ -1915,16 +2114,20 @@ ${message ? `\nההודעה שלי: ${message}` : ''}
                 testimonials.forEach((testimonial, i) => {
                     if (i === index) {
                         testimonial.style.display = 'block';
+                        testimonial.setAttribute('aria-hidden', 'false');
                     } else {
                         testimonial.style.display = 'none';
+                        testimonial.setAttribute('aria-hidden', 'true');
                     }
                 });
                 
                 testimonialDots.forEach((dot, i) => {
                     if (i === index) {
                         dot.classList.add('active');
+                        dot.setAttribute('aria-selected', 'true');
                     } else {
                         dot.classList.remove('active');
+                        dot.setAttribute('aria-selected', 'false');
                     }
                 });
                 
@@ -1966,6 +2169,98 @@ ${message ? `\nההודעה שלי: ${message}` : ''}
             
             // Auto advance testimonials every 7 seconds
             setInterval(nextTestimonial, 7000);
+        });
+
+        // פונקציונליות כפתור הנגישות
+        document.addEventListener('DOMContentLoaded', function() {
+            // נגישות כפתור
+            const accessibilityButton = document.querySelector('.accessibility-button');
+            const accessibilityMenu = document.querySelector('.accessibility-menu');
+            
+            if (accessibilityButton && accessibilityMenu) {
+                accessibilityButton.addEventListener('click', function() {
+                    accessibilityMenu.classList.toggle('active');
+                });
+                
+                // הגדלת טקסט
+                const fontSizeOption = document.getElementById('fontSize');
+                if (fontSizeOption) {
+                    fontSizeOption.addEventListener('click', function() {
+                        document.body.classList.toggle('larger-text');
+                        if (document.body.classList.contains('larger-text')) {
+                            document.body.style.fontSize = '120%';
+                        } else {
+                            document.body.style.fontSize = '';
+                        }
+                    });
+                }
+                
+                // ניגודיות גבוהה
+                const highContrastOption = document.getElementById('highContrast');
+                if (highContrastOption) {
+                    highContrastOption.addEventListener('click', function() {
+                        document.body.classList.toggle('high-contrast');
+                        if (document.body.classList.contains('high-contrast')) {
+                            document.documentElement.style.setProperty('--cream-light', '#fff');
+                            document.documentElement.style.setProperty('--text-dark', '#000');
+                            document.documentElement.style.setProperty('--main-accent', '#000080');
+                            document.documentElement.style.setProperty('--button-bg', '#000080');
+                        } else {
+                            document.documentElement.style.setProperty('--cream-light', '');
+                            document.documentElement.style.setProperty('--text-dark', '');
+                            document.documentElement.style.setProperty('--main-accent', '');
+                            document.documentElement.style.setProperty('--button-bg', '');
+                        }
+                    });
+                }
+                
+                // הדגשת קישורים
+                const linksHighlightOption = document.getElementById('linksHighlight');
+                if (linksHighlightOption) {
+                    linksHighlightOption.addEventListener('click', function() {
+                        document.body.classList.toggle('highlight-links');
+                        if (document.body.classList.contains('highlight-links')) {
+                            const links = document.querySelectorAll('a');
+                            links.forEach(link => {
+                                link.style.textDecoration = 'underline';
+                                link.style.fontWeight = 'bold';
+                            });
+                        } else {
+                            const links = document.querySelectorAll('a');
+                            links.forEach(link => {
+                                link.style.textDecoration = '';
+                                link.style.fontWeight = '';
+                            });
+                        }
+                    });
+                }
+                
+                // איפוס הגדרות נגישות
+                const resetAccessibilityOption = document.getElementById('resetAccessibility');
+                if (resetAccessibilityOption) {
+                    resetAccessibilityOption.addEventListener('click', function() {
+                        document.body.classList.remove('larger-text', 'high-contrast', 'highlight-links');
+                        document.body.style.fontSize = '';
+                        document.documentElement.style.setProperty('--cream-light', '');
+                        document.documentElement.style.setProperty('--text-dark', '');
+                        document.documentElement.style.setProperty('--main-accent', '');
+                        document.documentElement.style.setProperty('--button-bg', '');
+                        
+                        const links = document.querySelectorAll('a');
+                        links.forEach(link => {
+                            link.style.textDecoration = '';
+                            link.style.fontWeight = '';
+                        });
+                    });
+                }
+                
+                // סגירת תפריט נגישות בלחיצה מחוץ לתפריט
+                document.addEventListener('click', function(e) {
+                    if (!accessibilityMenu.contains(e.target) && !accessibilityButton.contains(e.target)) {
+                        accessibilityMenu.classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
 </body>
